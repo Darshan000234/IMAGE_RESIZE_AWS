@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serverless Image Resizer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="page">
+    <header class="header">
+      <h1>📷 Serverless Image Resizer</h1>
+      <p>Upload an image — AWS Lambda resizes it to 300×300 automatically.</p>
+    </header>
+
+    <main class="card">
+
+      <!-- Drag & Drop Upload Zone -->
+      <div id="dropZone" class="drop-zone">
+        <input type="file" id="fileInput" accept="image/png, image/jpeg, image/webp" hidden />
+        <div class="drop-zone-content">
+          <span class="upload-icon">⬆️</span>
+          <p><strong>Click to browse</strong> or drag & drop an image here</p>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div id="progressContainer" class="progress-container hidden">
+        <div class="progress-bar">
+          <div id="progressFill" class="progress-fill"></div>
+        </div>
+        <span id="progressLabel">Uploading... 0%</span>
+      </div>
+
+      <!-- Error Message -->
+      <div id="errorBox" class="error-box hidden"></div>
+
+      <!-- Processing Spinner -->
+      <div id="spinner" class="spinner-wrap hidden">
+        <div class="spinner"></div>
+        <p>Resizing your image on AWS Lambda...</p>
+      </div>
+
+      <!-- Success Message -->
+      <div id="successBox" class="success-box hidden">
+        ✅ Image resized successfully!
+      </div>
+
+      <!-- Image Previews -->
+      <div id="previewSection" class="preview-section hidden">
+        <div class="preview-card">
+          <h3>Original</h3>
+          <img id="originalImage" src="" alt="Original upload" />
+        </div>
+        <div class="preview-card">
+          <h3>Resized (300×300)</h3>
+          <img id="resizedImage" src="" alt="Resized output" />
+          <a id="downloadBtn" class="download-btn hidden" download>⬇ Download Resized Image</a>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="footer">
+      <p>Built with S3 + Lambda + Pillow — 100% serverless</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
